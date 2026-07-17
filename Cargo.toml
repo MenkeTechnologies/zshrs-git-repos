@@ -7,7 +7,7 @@ description = "zsh-git-repo-cache ported to a native zshrs plugin (gitrepos)"
 
 [lib]
 name = "git_repos"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 znative = "0.12"

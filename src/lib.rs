@@ -281,3 +281,34 @@ declare_plugin! {
         "gitrepos" => gitrepos,
     },
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn shquote_escapes_single_quotes() {
+        assert_eq!(shquote("plain"), "'plain'");
+        assert_eq!(shquote("it's"), r"'it'\''s'");
+    }
+
+    #[test]
+    fn walk_repos_finds_git_roots_not_descending_into_dotgit() {
+        // Build a throwaway tree: <base>/{a/.git, b/c/.git, d (no git)}.
+        let base = std::env::temp_dir().join(format!("gitrepos-test-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&base);
+        for p in ["a/.git", "b/c/.git", "d/sub"] {
+            std::fs::create_dir_all(base.join(p)).unwrap();
+        }
+        // a nested dir INSIDE a .git must NOT be reported as its own repo
+        std::fs::create_dir_all(base.join("a/.git/hooks")).unwrap();
+
+        let mut found = walk_repos(base.to_str().unwrap());
+        found.sort();
+        let a = base.join("a").to_string_lossy().into_owned();
+        let bc = base.join("b/c").to_string_lossy().into_owned();
+        assert_eq!(found, vec![a, bc]);
+
+        let _ = std::fs::remove_dir_all(&base);
+    }
+}
