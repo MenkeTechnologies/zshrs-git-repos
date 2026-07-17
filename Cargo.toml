@@ -1,0 +1,13 @@
+[package]
+name = "git_repos"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "zsh-git-repo-cache ported to a native zshrs plugin (gitrepos)"
+
+[lib]
+name = "git_repos"
+crate-type = ["cdylib"]
+
+[dependencies]
+zshrs-plugin = { git = "https://github.com/MenkeTechnologies/zshrs" }
