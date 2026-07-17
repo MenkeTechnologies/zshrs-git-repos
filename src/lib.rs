@@ -241,7 +241,11 @@ fn gitrepos(host: &Host, args: &Args) -> c_int {
     let mut repos = if do_regen {
         let r = root.clone().unwrap_or_else(|| scan_root(host));
         let repos = regen(host, &r);
-        host.print(&format!("gitrepos: cached {} repos from {}\n", repos.len(), r));
+        host.print(&format!(
+            "gitrepos: cached {} repos from {}\n",
+            repos.len(),
+            r
+        ));
         repos
     } else {
         load_repos(host)
