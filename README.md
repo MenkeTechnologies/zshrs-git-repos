@@ -26,13 +26,17 @@ the same test as the original.
 ## Install
 
 ```sh
-zpm add MenkeTechnologies/zshrs-git-repos
+zpm load MenkeTechnologies/zshrs-git-repos
 ```
 
-`zpm` clones, `cargo build --release`s the cdylib, and `zmodload -R`s it.
-`zpm load git-repos` in `.zshrc` to load at startup.
+Put that one line in your `.zshrc`.
+[zpm](https://github.com/MenkeTechnologies/zshrs/blob/main/docs/ZPM.md),
+zshrs's package manager, installs the plugin on the first shell start — clones
+it, runs `cargo build --release`, and `zmodload -R`s the resulting
+`libgit_repos` — then loads it from the store, zero-network, on every start
+after. No separate install step.
 
-## Build manually
+### Manual build
 
 ```sh
 cargo build --release
