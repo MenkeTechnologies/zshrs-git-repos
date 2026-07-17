@@ -10,4 +10,4 @@ name = "git_repos"
 crate-type = ["cdylib"]
 
 [dependencies]
-zshrs-plugin = { git = "https://github.com/MenkeTechnologies/zshrs" }
+znative = "0.12"
