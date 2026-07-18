@@ -4,6 +4,9 @@ version = "0.1.1"
 edition = "2021"
 publish = false
 description = "zsh-git-repo-cache ported to a native zshrs plugin (gitrepos)"
+authors = ["MenkeTechnologies"]
+repository = "https://github.com/MenkeTechnologies/zshrs-git-repos"
+homepage = "https://github.com/MenkeTechnologies/zshrs-git-repos"
 
 [lib]
 name = "git_repos"

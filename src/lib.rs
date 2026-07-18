@@ -17,6 +17,7 @@
 //!     --root DIR  scan root for --regen (default: $ZPWR_GIT_SCAN_ROOT or $HOME)
 //!
 //! Cache: `$ZPWR_ALL_GIT_DIRS` (default `~/.zsh-git-repo-cache`).
+#![allow(clippy::not_unsafe_ptr_arg_deref)]
 
 use std::io::Write;
 use std::os::raw::c_int;
