@@ -65,9 +65,11 @@ gitrepos --regen && gitrepos
 gitrepos              fzf-pick any cached repo and cd to it
 gitrepos --clean      only repos with a clean working tree
 gitrepos --dirty      only repos with uncommitted/untracked changes
-gitrepos --list       print instead of fzf/cd
+gitrepos --list       print instead of fzf/cd            (short: -l)
 gitrepos --regen      rescan the filesystem and rebuild the cache
+                      (bare `gitrepos regen` works too)
 gitrepos --root DIR   scan root for --regen (default: $ZPWR_GIT_SCAN_ROOT or $HOME)
+gitrepos --help       one-line usage                     (short: -h)
 ```
 
 Cache file: `$ZPWR_ALL_GIT_DIRS` (default `~/.zsh-git-repo-cache`).
