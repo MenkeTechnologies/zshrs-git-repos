@@ -4,13 +4,13 @@ version = 4
 
 [[package]]
 name = "git_repos"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
  "znative",
 ]
 
 [[package]]
 name = "znative"
-version = "0.12.70"
+version = "0.13.45"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3e1da7ece21b88ed4ba29bca9ea46146c3eae55645943705fa42e3630490e640"
+checksum = "1be5451e1175fd9d8760ab96404bd99a6373a9282ca91d38a6f065bbaf23d046"

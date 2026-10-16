@@ -277,7 +277,7 @@ fn gitrepos(host: &Host, args: &Args) -> c_int {
 
 declare_plugin! {
     name: "git-repos",
-    version: "0.1.6",
+    version: "0.1.7",
     builtins: {
         "gitrepos" => gitrepos,
     },
