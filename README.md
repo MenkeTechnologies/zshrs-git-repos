@@ -78,7 +78,7 @@ Cache file: `$ZPWR_ALL_GIT_DIRS` (default `~/.zsh-git-repo-cache`).
 
 ## [0x03] HOW IT WORKS
 
-`--regen` walks the scan root once, records each `.git` parent in the cache file, and classifies clean/dirty across a thread pool instead of one-repo-at-a-time. Subsequent `gitrepos` calls read the cache and `fzf`-pick; the `cd` is delegated to the shell so `$PWD`/hooks stay correct.
+`--regen` walks the scan root once (not following symlinks) and records each `.git` parent in the cache file; the cache is also rebuilt automatically when missing or empty, and entries whose directory no longer exists are dropped on load. `--clean` and `--dirty` classify the cached repos across a thread pool (at most 16 threads) instead of one-repo-at-a-time. `gitrepos` calls read the cache and `fzf`-pick; the `cd` is delegated to the shell so `$PWD`/hooks stay correct.
 
 ---
 
